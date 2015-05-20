@@ -11,3 +11,7 @@
 /WebApiTest_RouteTemplate/Web.Api/*.user
 /WebApiTest_RouteTemplate/Web.Api.Tests/bin
 /WebApiTest_RouteTemplate/Web.Api.Tests/obj
+/WebApiTest_RouteAttribute/Web.Api/*.user
+/WebApiTest_RouteTemplate/packages
+/WebApiTest_RouteAttribute/Web.Api/Web.Api.csproj.user
+/WebApiTest_RouteAttribute/packages
