@@ -1,0 +1,13 @@
+/WebApiTest_RouteAttribute/*.user
+/WebApiTest_RouteAttribute/*.suo
+/WebApiTest_RouteAttribute/Web.Api/bin
+/WebApiTest_RouteAttribute/Web.Api/obj
+/WebApiTest_RouteAttribute/Web.Api.Tests/bin
+/WebApiTest_RouteAttribute/Web.Api.Tests/obj
+/WebApiTest_RouteTemplate/*.user
+/WebApiTest_RouteTemplate/*.suo
+/WebApiTest_RouteTemplate/Web.Api/bin
+/WebApiTest_RouteTemplate/Web.Api/obj
+/WebApiTest_RouteTemplate/Web.Api/*.user
+/WebApiTest_RouteTemplate/Web.Api.Tests/bin
+/WebApiTest_RouteTemplate/Web.Api.Tests/obj
