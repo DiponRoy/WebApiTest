@@ -15,3 +15,14 @@
 /WebApiTest_RouteTemplate/packages
 /WebApiTest_RouteAttribute/Web.Api/Web.Api.csproj.user
 /WebApiTest_RouteAttribute/packages
+/WebApiTest_Ioc/Db/obj
+/WebApiTest_Ioc/Db/bin
+/WebApiTest_Ioc/packages
+/WebApiTest_Ioc/Web.Api/obj
+/WebApiTest_Ioc/Web.Api/bin
+/WebApiTest_Ioc/Web.Api/Web.Api.csproj.user
+/WebApiTest_Ioc/WebApiTest.sln.DotSettings.user
+/WebApiTest_Ioc/*.user
+/WebApiTest_Ioc/*.suo
+/WebApiTest_Ioc/Web.Api.Tests/bin
+/WebApiTest_Ioc/Web.Api.Tests/obj
