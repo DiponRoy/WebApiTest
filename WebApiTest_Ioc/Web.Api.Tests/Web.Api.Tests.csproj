@@ -70,9 +70,11 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MockedInjectionTest.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="LocTests.cs" />
     <Compile Include="NinjectIocTest.cs" />
+    <Compile Include="DbTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

@@ -16,7 +16,10 @@ namespace Db
                 new Student {Id = 2, Name = "Student2", IsActive = true},
             };
 
-            Admins = new List<Admin>();
+            Admins = new List<Admin>()
+            {
+                new Admin() {Id = 1, Name = "Admin1", IsActive = true},            
+            };
         }
     }
 }

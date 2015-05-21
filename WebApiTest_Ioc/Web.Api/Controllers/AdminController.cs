@@ -17,18 +17,20 @@ namespace Web.Api.Controllers
         public AdminController()
         {
             Db = new UmsDb();
+            Db.Admins = new List<Admin>();  // admin count 0
         }
         public AdminController(IUmsDb db)
         {
-            Db = db;
+            Db = db;        //default db: admin count 1
+                            //mocked db: admin count as you set
         }
 
         // GET api/student/all
         [HttpGet]
         [Route("admin/all")]
-        public IEnumerable<Student> GetAll()
+        public IEnumerable<Admin> GetAll()
         {
-            return Db.Students.ToList();
+            return Db.Admins.ToList();
         }
 
     }
