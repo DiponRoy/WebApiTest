@@ -16,7 +16,7 @@ using NUnit.Framework;
 namespace Web.Api.Tests
 {
     [TestFixture]
-    public class LocTests
+    public class LocAndDefaultConstructorTest
     {
         protected Mock<IUmsDb> Db { get; set; }
         protected HttpServer Server { get; set; }
@@ -100,8 +100,8 @@ namespace Web.Api.Tests
         }
 
         /*
-         * Loc has the priority
-         *      if loc bind, the the default construction doesn't work
+         * Ioc injection has the priority
+         *      if loc bind, the the default Constructor doesn't work
          */
 
         [Test]

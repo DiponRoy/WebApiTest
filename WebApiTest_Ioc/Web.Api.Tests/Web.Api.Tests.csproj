@@ -72,7 +72,7 @@
   <ItemGroup>
     <Compile Include="MockedInjectionTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="LocTests.cs" />
+    <Compile Include="LocAndDefaultConstructorTest.cs" />
     <Compile Include="NinjectIocTest.cs" />
     <Compile Include="DbTest.cs" />
   </ItemGroup>
