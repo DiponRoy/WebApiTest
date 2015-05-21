@@ -11,7 +11,7 @@ using NUnit.Framework;
 namespace Web.Api.Tests
 {
     [TestFixture]
-    public class StudentControllerTest
+    public class NinjectIocTest
     {
         private HttpServer _server;
         private string _url = "http://test/";

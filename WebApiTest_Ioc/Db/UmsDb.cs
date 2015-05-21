@@ -6,6 +6,7 @@ namespace Db
     public class UmsDb : IUmsDb
     {
         public IList<Student> Students { get; set; }
+        public IList<Admin> Admins { get; set; }
 
         public UmsDb()
         {
@@ -14,6 +15,8 @@ namespace Db
                 new Student {Id = 1, Name = "Student1", IsActive = true},
                 new Student {Id = 2, Name = "Student2", IsActive = true},
             };
+
+            Admins = new List<Admin>();
         }
     }
 }

@@ -10,5 +10,7 @@ namespace Db
     public interface IUmsDb
     {
         IList<Student> Students { get; set; }
+        IList<Admin> Admins { get; set; }
+
     }
 }
