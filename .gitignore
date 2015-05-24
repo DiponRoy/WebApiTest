@@ -26,3 +26,17 @@
 /WebApiTest_Ioc/*.suo
 /WebApiTest_Ioc/Web.Api.Tests/bin
 /WebApiTest_Ioc/Web.Api.Tests/obj
+/WebApiTest_Sdk/Db/bin
+/WebApiTest_Sdk/Db/obj
+/WebApiTest_Sdk/Db.Model/bin
+/WebApiTest_Sdk/Db.Model/obj
+/WebApiTest_Sdk/packages
+/WebApiTest_Sdk/*.user
+/WebApiTest_Sdk/*.suo
+/WebApiTest_Sdk/Web.Api/*.user
+/WebApiTest_Sdk/Web.Api/bin
+/WebApiTest_Sdk/Web.Api/obj
+/WebApiTest_Sdk/Web.Api.Sdk/bin
+/WebApiTest_Sdk/Web.Api.Sdk/obj
+/WebApiTest_Sdk/Web.Api.Tests/bin
+/WebApiTest_Sdk/Web.Api.Tests/obj
