@@ -10,7 +10,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Wiki", "Wiki", "{0332CD05-3
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web.Api", "Web.Api\Web.Api.csproj", "{4B6BF1CC-D1D9-431E-AB83-704C6B5196D6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web.Api.Sdk.Tests", "Web.Api.Tests\Web.Api.Sdk.Tests.csproj", "{012137CC-83D2-41F5-A3EF-9154F35ED415}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web.Api.Sdk.Tests", "Web.Api.Sdk.Tests\Web.Api.Sdk.Tests.csproj", "{012137CC-83D2-41F5-A3EF-9154F35ED415}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Db", "Db\Db.csproj", "{B156F2F9-5528-4F41-BE47-8DB44FC01823}"
 EndProject
