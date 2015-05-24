@@ -28,3 +28,8 @@ Web.app at test project:
 ------------------------
 Install-Package Microsoft.AspNet.WebApi.OwinSelfHost
 Install-Package Microsoft.Owin.Testing
+
+
+owin
+----
+important run vs as admin, or some times throws errors
