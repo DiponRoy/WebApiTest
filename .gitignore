@@ -40,3 +40,15 @@
 /WebApiTest_Sdk/Web.Api.Sdk/obj
 /WebApiTest_Sdk/Web.Api.Sdk.Tests/bin
 /WebApiTest_Sdk/Web.Api.Sdk.Tests/obj
+/WebApiTest_Authorized/Db/bin
+/WebApiTest_Authorized/Db/obj
+/WebApiTest_Authorized/Db.Model/bin
+/WebApiTest_Authorized/Db.Model/obj
+/WebApiTest_Authorized/packages
+/WebApiTest_Authorized/Web.Api/bin
+/WebApiTest_Authorized/Web.Api/obj
+/WebApiTest_Authorized/Web.Api/*.user
+/WebApiTest_Authorized/Web.Api.Tests/bin
+/WebApiTest_Authorized/Web.Api.Tests/obj
+/WebApiTest_Authorized/*.user
+/WebApiTest_Authorized/WebApiTest.v12.suo

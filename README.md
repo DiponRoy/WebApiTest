@@ -30,4 +30,10 @@ Sdk:
 - unit test of the sdk
 - need to use "localhost" for url, and run **VS** with **administrator** mode
 
+Authorized:
+-----------
+- token based authentication
+- unit test of authentication
+- need to use "localhost" for url, and run **VS** with **administrator** mode
+
 
