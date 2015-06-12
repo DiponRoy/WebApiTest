@@ -7,9 +7,9 @@ using Microsoft.Owin.Hosting;
 using Newtonsoft.Json;
 using NUnit.Framework;
 using Web.Api.Auth;
-using Web.Api.Tests.Api_Start;
+using Web.Api.Tests.Models;
 
-namespace Web.Api.Tests.UnitTest
+namespace Web.Api.Tests.IntegratedTest
 {
     [TestFixture]
     public class HelloControllerTest
@@ -31,7 +31,7 @@ namespace Web.Api.Tests.UnitTest
 
         public void InitializeServer()
         {
-            Server = WebApp.Start<ApiStartup>(BaseUrl);
+            Server = WebApp.Start<Startup>(BaseUrl);
         }
 
 

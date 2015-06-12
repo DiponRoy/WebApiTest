@@ -4,7 +4,7 @@ using Db;
 using Db.Model;
 using NUnit.Framework;
 
-namespace Web.Api.Tests
+namespace Web.Api.Tests.IntegratedTest
 {
     [TestFixture]
     public class DbTest

@@ -1,18 +1,21 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
+using Db;
 using Db.Model;
 using Microsoft.Owin.Hosting;
+using Moq;
 using Newtonsoft.Json;
 using NUnit.Framework;
 using Web.Api.Auth;
-using Web.Api.Tests.Api_Start;
+using Web.Api.Tests.Models;
 
 namespace Web.Api.Tests.UnitTest
 {
     [TestFixture]
-    public class TokenControllerTest
+    public class TokenControllerUnitTest
     {
         protected const string BaseUrl = "http://localhost"; //http://localhost work's fine, else throwing error
 
@@ -21,7 +24,7 @@ namespace Web.Api.Tests.UnitTest
             get { return BaseUrl + "/api/"; }
         }
 
-        protected string Token { get; set; }
+        protected Mock<IUmsDb> Db { get; set; } 
         protected IDisposable Server { get; set; }
 
         protected HttpClient HttpClient { get; set; }
@@ -29,12 +32,14 @@ namespace Web.Api.Tests.UnitTest
         [SetUp]
         public void Setup()
         {
-            Token = string.Empty;
+            Db = new Mock<IUmsDb>();
             HttpClient = new HttpClient();
+            ApiStartup.Setup();
         }
 
         public void InitializeServer()
         {
+            ApiStartup.Ioc.UmsDbProvider = context => Db.Object;
             Server = WebApp.Start<ApiStartup>(BaseUrl);
         }
 
@@ -48,7 +53,8 @@ namespace Web.Api.Tests.UnitTest
             }
             Server = null;
             HttpClient = null;
-            Token = null;
+            Db = null;
+            ApiStartup.Dispose();
         }
 
         private HttpRequestMessage CreateRequest(string url, HttpMethod method)
@@ -72,11 +78,11 @@ namespace Web.Api.Tests.UnitTest
         [Test]
         public void UserToken()
         {
+            var admin = new Admin { LoginName = "Admin1", Password = "123", IsActive = true};
+            Db.Setup(x => x.Admins).Returns(new List<Admin>() {admin});
             InitializeServer();
 
             //api call
-            var admin = new Admin { LoginName = "Admin1", Password = "123" };
-
             ApiResponseTmpl<IdentityToken> responseTmplObj;
             HttpRequestMessage request = CreateRequest("token/user", HttpMethod.Post,
                 JsonConvert.SerializeObject(admin));

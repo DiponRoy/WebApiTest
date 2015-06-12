@@ -11,7 +11,7 @@ namespace Web.Api.Auth
         IList<Admin> Logins { get; set; }
     }
 
-    public class AuthContext : IdentityDbContext<ApplicationIdentityUser>, IAuthContext
+    public class AuthContext : IAuthContext
     {
         public AuthContext()
         {
@@ -20,9 +20,9 @@ namespace Web.Api.Auth
 
         public IList<Admin> Logins { get; set; }
 
-        public static IDisposable Create()
+        public void Dispose()
         {
-            return new AuthContext();
+            throw new NotImplementedException();
         }
     }
 }

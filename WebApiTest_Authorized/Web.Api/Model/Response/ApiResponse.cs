@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
-namespace Web.Api.Model
+namespace Web.Api.Model.Response
 {
     public class ApiResponse<TSource> : Response<TSource>
     {

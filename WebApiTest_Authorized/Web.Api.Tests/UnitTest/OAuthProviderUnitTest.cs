@@ -1,17 +1,19 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
+using Db.Model;
 using Microsoft.Owin.Hosting;
+using Moq;
 using Newtonsoft.Json;
 using NUnit.Framework;
 using Web.Api.Auth;
-using Web.Api.Tests.Api_Start;
 
 namespace Web.Api.Tests.UnitTest
 {
     [TestFixture]
-    public class OAuthProviderTest
+    public class OAuthProviderUnitTest
     {
         protected const string BaseUrl = "http://localhost"; //http://localhost work's fine, else throwing error
 
@@ -20,6 +22,7 @@ namespace Web.Api.Tests.UnitTest
             get { return BaseUrl + "/oauth/"; }
         }
 
+        protected Mock<IAuthContext> Db { get; set; } 
         protected IDisposable Server { get; set; }
 
         protected HttpClient HttpClient { get; set; }
@@ -27,11 +30,14 @@ namespace Web.Api.Tests.UnitTest
         [SetUp]
         public void Setup()
         {
+            Db = new Mock<IAuthContext>();
             HttpClient = new HttpClient();
+            ApiStartup.Setup();
         }
 
         public void InitializeServer()
         {
+            ApiStartup.Ioc.AuthContextProvider = context => Db.Object;
             Server = WebApp.Start<ApiStartup>(BaseUrl);
         }
 
@@ -45,6 +51,8 @@ namespace Web.Api.Tests.UnitTest
             }
             Server = null;
             HttpClient = null;
+            Db = null;
+            ApiStartup.Dispose();
         }
 
         private HttpRequestMessage CreateRequest(string url, HttpMethod method)
@@ -69,11 +77,12 @@ namespace Web.Api.Tests.UnitTest
         [Test]
         public void UserToken()
         {
+            var admin = new Admin { LoginName = "Admin1", Password = "123", IsActive = true };
+            Db.Setup(x => x.Logins).Returns(new List<Admin>() { admin });
             InitializeServer();
 
             //api call
-            string contentBody = string.Format("grant_type={0}&username={1}&password={2}", "password", "Admin1", "123");
-                //important
+            string contentBody = string.Format("grant_type={0}&username={1}&password={2}", "password", admin.LoginName, admin.Password); //important
 
             IdentityToken responseTmplObj;
             HttpRequestMessage request = CreateRequest("token/user", HttpMethod.Post, contentBody);

@@ -35,6 +35,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="FizzWare.NBuilder, Version=3.0.1.0, Culture=neutral, PublicKeyToken=5651b03e12e42c12, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\NBuilder.3.0.1.1\lib\FizzWare.NBuilder.dll</HintPath>
@@ -96,13 +100,18 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
-    <Compile Include="ApiResponseTmpl.cs" />
-    <Compile Include="DbTest.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Api_Start\ApiStartup.cs" />
-    <Compile Include="UnitTest\HelloControllerTest.cs" />
-    <Compile Include="UnitTest\OAuthProviderTest.cs" />
-    <Compile Include="UnitTest\TokenControllerTest.cs" />
+    <Compile Include="Api_Start\IocMockModule.cs" />
+    <Compile Include="Models\ApiResponseTmpl.cs" />
+    <Compile Include="IntegratedTest\DbTest.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="IntegratedTest\HelloControllerTest.cs" />
+    <Compile Include="IntegratedTest\OAuthProviderTest.cs" />
+    <Compile Include="IntegratedTest\TokenControllerTest.cs" />
+    <Compile Include="IntegratedTest\IocContainerTest.cs" />
+    <Compile Include="UnitTest\HelloControllerUnitTest.cs" />
+    <Compile Include="UnitTest\OAuthProviderUnitTest.cs" />
+    <Compile Include="UnitTest\TokenControllerUnitTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -124,6 +133,7 @@
       <Name>Web.Api</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

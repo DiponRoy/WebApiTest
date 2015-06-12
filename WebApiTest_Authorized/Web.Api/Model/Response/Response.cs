@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Web.Api.Model
+namespace Web.Api.Model.Response
 {
     public class Response<TSource> : IResponse<TSource>
     {
@@ -9,6 +9,7 @@ namespace Web.Api.Model
         public TSource Data { get; set; }
         //*if any exception data, success false*/
         public Exception Exception { get; set; }
+        public string Message { get; set; }
 
         private Response()
         {
@@ -16,10 +17,16 @@ namespace Web.Api.Model
             Exception = null;
         }
 
-        private Response(bool isSuccess)
+        private Response(bool? isSuccess)
             : this()
         {
-            IsSuccess = isSuccess;
+            if (isSuccess == null)
+            {
+                throw new NullReferenceException("isSuccess");
+            }
+
+            IsSuccess = (bool) isSuccess;
+            Message = IsSuccess ? "Success" : "Error";
         }
 
         /*sets response data*/
@@ -36,6 +43,7 @@ namespace Web.Api.Model
             : this(false)
         {
             Exception = exception;
+            Message = exception.Message;
         }
     }
 }

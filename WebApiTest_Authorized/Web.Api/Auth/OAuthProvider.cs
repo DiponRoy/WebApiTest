@@ -7,6 +7,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.OAuth;
 using Ninject;
+using Web.Api.Ioc;
 
 namespace Web.Api.Auth
 {
@@ -48,7 +49,7 @@ namespace Web.Api.Auth
         {
             context.OwinContext.Response.Headers.Add("Access-Control-Allow-Origin", new[] { "*" });
 
-            var repo = new AuthRepository(IocConfig.Kernel.Get<IAuthContext>());
+            var repo = new AuthRepository(IocContainer.Get<IAuthContext>());
             Admin user = repo.FindActive(context.UserName, context.Password);
             if (user == null)
             {

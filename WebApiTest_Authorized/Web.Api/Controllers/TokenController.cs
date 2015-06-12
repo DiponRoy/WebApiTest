@@ -5,29 +5,33 @@ using System.Net;
 using System.Net.Http;
 using System.Security.Claims;
 using System.Web.Http;
+using Db;
 using Db.Model;
 using Microsoft.Owin.Infrastructure;
 using Microsoft.Owin.Security;
 using Web.Api.Auth;
 using Web.Api.Model;
+using Web.Api.Model.Response;
 
 namespace Web.Api.Controllers
 {
     [RoutePrefix("api")]
     public class TokenController : ApiController
     {
-        private readonly IAuthContext AuthContext;
+        private readonly IUmsDb Context;
 
-        public TokenController(IAuthContext authContext)
+        public TokenController(IUmsDb context)
         {
-            AuthContext = authContext;
+            Context = context;
         }
 
         [HttpPost]
         [Route("token/user")]
         public ApiResponse<IdentityToken> UserToken(Admin admin)
         {
-            var user = new AuthRepository(AuthContext).FindActive(admin.LoginName, admin.Password);
+            var user = Context.Admins.FirstOrDefault(x => x.LoginName == admin.LoginName
+                                                      && x.Password == admin.Password
+                                                      && x.IsActive);
             if (user == null)
             {
                 throw new UnauthorizedAccessException("");
