@@ -1,5 +1,11 @@
-# WebApiTest v.1.0
-Testing WebApi with Self Host. VS 2013 solutions. Rebuild the solution, let nuget install dependencies, run the tests
+# WebApiTest v.1.5
+**Testing WebApi with Self Host.** 
+
+VS 2013 solutions. 
+
+Rebuild the solution, let nuget install dependencies,
+
+Run the tests
 
 
 Route Template:
@@ -22,6 +28,12 @@ Sdk:
 ----
 - making sdk using WebClient for controllers
 - unit test of the sdk
-- **important:** need to use "localhost" for url
+- need to use "localhost" for url, and run **VS** with **administrator** mode
+
+Authorized:
+-----------
+- token based authentication
+- unit test of authentication
+- need to use "localhost" for url, and run **VS** with **administrator** mode
 
 
