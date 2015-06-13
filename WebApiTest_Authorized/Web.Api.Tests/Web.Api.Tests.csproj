@@ -108,7 +108,7 @@
     <Compile Include="IntegratedTest\HelloControllerTest.cs" />
     <Compile Include="IntegratedTest\OAuthProviderTest.cs" />
     <Compile Include="IntegratedTest\TokenControllerTest.cs" />
-    <Compile Include="IntegratedTest\IocContainerTest.cs" />
+    <Compile Include="IntegratedTest\IocTest.cs" />
     <Compile Include="UnitTest\HelloControllerUnitTest.cs" />
     <Compile Include="UnitTest\OAuthProviderUnitTest.cs" />
     <Compile Include="UnitTest\TokenControllerUnitTest.cs" />

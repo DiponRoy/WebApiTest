@@ -39,7 +39,7 @@ namespace Web.Api.Tests.UnitTest
 
         public void InitializeServer()
         {
-            ApiStartup.Ioc.UmsDbProvider = context => Db.Object;
+            ApiStartup.Ioc.UmsDbFunc = context => Db.Object;
             Server = WebApp.Start<ApiStartup>(BaseUrl);
         }
 

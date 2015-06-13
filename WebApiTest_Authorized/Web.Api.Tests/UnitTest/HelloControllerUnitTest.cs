@@ -40,7 +40,7 @@ namespace Web.Api.Tests.UnitTest
         {
             Db.Setup(x => x.Admins).Returns(new List<Admin>() { LoginAdmin });
 
-            ApiStartup.Ioc.UmsDbProvider = context => Db.Object;
+            ApiStartup.Ioc.UmsDbFunc = context => Db.Object;
             Server = WebApp.Start<ApiStartup>(BaseUrl);
         }
 

@@ -1,20 +1,26 @@
 ﻿using System;
 using Db;
+using Moq;
 using Ninject.Activation;
 using Ninject.Modules;
 using Web.Api.Auth;
+using Web.Api.Ioc;
 
 namespace Web.Api.Tests
 {
-    public class IocMockModule : NinjectModule
+    public class IocMockModule : IocModule
     {
-        public override void Load()
+        public IocMockModule()
         {
-            Bind<IUmsDb>().ToMethod(UmsDbProvider);
-            Bind<IAuthContext>().ToMethod(AuthContextProvider);
+            AuthContextFunc = x => new Mock<IAuthContext>().Object;
+            UmsDbFunc = x => new Mock<IUmsDb>().Object;
         }
 
-        public Func<IContext, IAuthContext> AuthContextProvider { get; set; }
-        public Func<IContext, IUmsDb> UmsDbProvider { get; set; }
+        public new void Dispose()
+        {
+            AuthContextFunc = null;
+            UmsDbFunc = null;
+            base.Dispose(true);
+        }
     }
 }
