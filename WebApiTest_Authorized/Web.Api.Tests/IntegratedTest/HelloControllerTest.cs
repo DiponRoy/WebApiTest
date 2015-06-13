@@ -7,6 +7,7 @@ using Microsoft.Owin.Hosting;
 using Newtonsoft.Json;
 using NUnit.Framework;
 using Web.Api.Auth;
+using Web.Api.Ioc;
 using Web.Api.Tests.Models;
 
 namespace Web.Api.Tests.IntegratedTest

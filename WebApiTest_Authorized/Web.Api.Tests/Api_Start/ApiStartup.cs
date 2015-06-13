@@ -22,12 +22,13 @@ namespace Web.Api.Tests
         
         public void Configuration(IAppBuilder app)
         {
-            IocContainer.SetModule(Ioc);
+            IocContainer.CreateKernelWith(Ioc);
             new Startup().Configuration(app); /*or set the configuration's again*/
         }
 
         public static void Dispose()
         {
+            IocContainer.Dispose();
             Ioc = null;
         }
     }

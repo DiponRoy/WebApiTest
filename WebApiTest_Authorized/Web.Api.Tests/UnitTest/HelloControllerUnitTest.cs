@@ -24,11 +24,13 @@ namespace Web.Api.Tests.UnitTest
         }
         protected IDisposable Server { get; set; }
         protected Mock<IUmsDb> Db { get; set; }
+        protected Admin LoginAdmin { get; set; }
         protected HttpClient HttpClient { get; set; }
 
         [SetUp]
         public void Setup()
         {
+            LoginAdmin = new Admin { LoginName = "hoho", Password = "123", IsActive = true };
             Db = new Mock<IUmsDb>();
             HttpClient = new HttpClient();
             ApiStartup.Setup();
@@ -36,8 +38,7 @@ namespace Web.Api.Tests.UnitTest
 
         public void InitializeServer()
         {
-            var admin = new Admin { LoginName = "Admin1", Password = "123", IsActive = true};
-            Db.Setup(x => x.Admins).Returns(new List<Admin>() {admin});
+            Db.Setup(x => x.Admins).Returns(new List<Admin>() { LoginAdmin });
 
             ApiStartup.Ioc.UmsDbProvider = context => Db.Object;
             Server = WebApp.Start<ApiStartup>(BaseUrl);
@@ -53,6 +54,7 @@ namespace Web.Api.Tests.UnitTest
             }
             Server = null;
             HttpClient = null;
+            LoginAdmin = null;
             Db = null;
             ApiStartup.Dispose();
         }
@@ -78,7 +80,7 @@ namespace Web.Api.Tests.UnitTest
         protected string GetToken()
         {
             //api call
-            var admin = new Admin { LoginName = "Admin1", Password = "123" };
+            var admin = LoginAdmin;
 
             ApiResponseTmpl<IdentityToken> responseTmplObj;
             HttpRequestMessage request = CreateRequest("token/user", HttpMethod.Post,
