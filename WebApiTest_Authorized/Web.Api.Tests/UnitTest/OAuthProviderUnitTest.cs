@@ -37,7 +37,7 @@ namespace Web.Api.Tests.UnitTest
 
         public void InitializeServer()
         {
-            ApiStartup.Ioc.AuthContextProvider = context => Db.Object;
+            ApiStartup.Ioc.AuthContextFunc = context => Db.Object;
             Server = WebApp.Start<ApiStartup>(BaseUrl);
         }
 
@@ -77,7 +77,7 @@ namespace Web.Api.Tests.UnitTest
         [Test]
         public void UserToken()
         {
-            var admin = new Admin { LoginName = "Admin1", Password = "123", IsActive = true };
+            var admin = new Admin { LoginName = "lol", Password = "345", IsActive = true };
             Db.Setup(x => x.Logins).Returns(new List<Admin>() { admin });
             InitializeServer();
 

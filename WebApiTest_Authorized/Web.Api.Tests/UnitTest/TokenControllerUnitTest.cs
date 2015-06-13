@@ -39,7 +39,7 @@ namespace Web.Api.Tests.UnitTest
 
         public void InitializeServer()
         {
-            ApiStartup.Ioc.UmsDbProvider = context => Db.Object;
+            ApiStartup.Ioc.UmsDbFunc = context => Db.Object;
             Server = WebApp.Start<ApiStartup>(BaseUrl);
         }
 
@@ -78,7 +78,7 @@ namespace Web.Api.Tests.UnitTest
         [Test]
         public void UserToken()
         {
-            var admin = new Admin { LoginName = "Admin1", Password = "123", IsActive = true};
+            var admin = new Admin { LoginName = "koko", Password = "456", IsActive = true};
             Db.Setup(x => x.Admins).Returns(new List<Admin>() {admin});
             InitializeServer();
 

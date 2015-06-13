@@ -16,19 +16,18 @@ namespace Web.Api.Tests
         public static void Setup()
         {
             Ioc = new IocMockModule();
-            Ioc.AuthContextProvider = x => new Mock<IAuthContext>().Object;
-            Ioc.UmsDbProvider = x => new Mock<IUmsDb>().Object;
         }
         
         public void Configuration(IAppBuilder app)
         {
-            IocContainer.SetModule(Ioc);
+            IocContainer.CreateKernelWith(Ioc);
             new Startup().Configuration(app); /*or set the configuration's again*/
         }
 
         public static void Dispose()
         {
-            Ioc = null;
+            IocContainer.Dispose();
+            Ioc.Dispose();
         }
     }
 }
