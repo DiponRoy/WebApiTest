@@ -52,3 +52,11 @@
 /WebApiTest_Authorized/Web.Api.Tests/obj
 /WebApiTest_Authorized/*.user
 /WebApiTest_Authorized/WebApiTest.v12.suo
+/WebApiTest_HttpClient_ResponseObject/packages
+/WebApiTest_HttpClient_ResponseObject/*.user
+/WebApiTest_HttpClient_ResponseObject/*.suo
+/WebApiTest_HttpClient_ResponseObject/Web.Api/*.user
+/WebApiTest_HttpClient_ResponseObject/Web.Api/bin
+/WebApiTest_HttpClient_ResponseObject/Web.Api/obj
+/WebApiTest_HttpClient_ResponseObject/Web.Api.Tests/bin
+/WebApiTest_HttpClient_ResponseObject/Web.Api.Tests/obj
