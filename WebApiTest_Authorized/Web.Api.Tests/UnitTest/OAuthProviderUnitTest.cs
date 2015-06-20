@@ -37,7 +37,7 @@ namespace Web.Api.Tests.UnitTest
 
         public void InitializeServer()
         {
-            ApiStartup.Ioc.AuthContextFunc = context => Db.Object;
+            ApiStartup.MockIoc.AuthContextFunc = context => Db.Object;
             Server = WebApp.Start<ApiStartup>(BaseUrl);
         }
 

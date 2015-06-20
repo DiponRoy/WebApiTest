@@ -101,7 +101,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Api_Start\ApiStartup.cs" />
-    <Compile Include="Api_Start\IocMockModule.cs" />
+    <Compile Include="Api_Start\MockIocModule.cs" />
     <Compile Include="Models\ApiResponseTmpl.cs" />
     <Compile Include="IntegratedTest\DbTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

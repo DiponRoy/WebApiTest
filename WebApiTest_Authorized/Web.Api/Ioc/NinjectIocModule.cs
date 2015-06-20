@@ -6,13 +6,13 @@ using Web.Api.Auth;
 
 namespace Web.Api.Ioc
 {
-    public class IocModule : NinjectModule, IIocModule
+    public class NinjectIocModule : NinjectModule, IIocModule
     {
         //this helps for mocking
         public Func<IContext, IUmsDb> UmsDbFunc { get; set; }
         public Func<IContext, IAuthContext> AuthContextFunc { get; set; }
 
-        public IocModule()
+        public NinjectIocModule()
         {
             UmsDbFunc = x => new UmsDb();
             AuthContextFunc = x => new AuthContext();
@@ -24,11 +24,5 @@ namespace Web.Api.Ioc
             Bind<IAuthContext>().ToMethod(AuthContextFunc); //important used for oauth provider
         }
 
-    }
-
-    public interface IIocModule
-    {
-        Func<IContext, IUmsDb> UmsDbFunc { get; set; }
-        Func<IContext, IAuthContext> AuthContextFunc { get; set; }
     }
 }
