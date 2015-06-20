@@ -11,23 +11,23 @@ namespace Web.Api.Tests
 {
     public class ApiStartup
     {
-        public static IocMockModule Ioc;
+        public static MockIocModule MockIoc;
 
         public static void Setup()
         {
-            Ioc = new IocMockModule();
+            MockIoc = new MockIocModule();
         }
         
         public void Configuration(IAppBuilder app)
         {
-            IocContainer.CreateKernelWith(Ioc);
+            IocKernelProvider.CreateKernelWith(MockIoc);
             new Startup().Configuration(app); /*or set the configuration's again*/
         }
 
         public static void Dispose()
         {
-            IocContainer.Dispose();
-            Ioc.Dispose();
+            IocKernelProvider.Dispose();
+            MockIoc.Dispose();
         }
     }
 }

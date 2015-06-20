@@ -5,15 +5,15 @@ namespace Web.Api.Ioc
 {
     public class NinjectDependencyResolver : NinjectScope, IDependencyResolver
     {
-        private readonly IKernel _kernel;
+        protected readonly IKernel Kernel;
         public NinjectDependencyResolver(IKernel kernel)
             : base(kernel)
         {
-            _kernel = kernel;
+            Kernel = kernel;
         }
         public IDependencyScope BeginScope()
         {
-            return new NinjectScope(_kernel.BeginBlock());
+            return new NinjectScope(Kernel.BeginBlock());
         }
     }
 }

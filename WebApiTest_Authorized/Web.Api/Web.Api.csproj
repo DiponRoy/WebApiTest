@@ -199,7 +199,11 @@
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IocConfig.cs" />
-    <Compile Include="Ioc\IocContainer.cs" />
+    <Compile Include="Ioc\IIocContainer.cs" />
+    <Compile Include="Ioc\IocAdapter.cs" />
+    <Compile Include="Ioc\IIocModule.cs" />
+    <Compile Include="Ioc\IocKernelProvider.cs" />
+    <Compile Include="Ioc\NinjectIocContainer.cs" />
     <Compile Include="Ioc\NinjectDependencyResolver.cs" />
     <Compile Include="Ioc\NinjectScope.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -216,7 +220,7 @@
       <DependentUpon>Global.asax</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Ioc\IocModule.cs" />
+    <Compile Include="Ioc\NinjectIocModule.cs" />
     <Compile Include="Model\Response\ApiResponse.cs" />
     <Compile Include="Model\Response\IResponse.cs" />
     <Compile Include="Model\Response\Response.cs" />

@@ -8,9 +8,9 @@ using Web.Api.Ioc;
 
 namespace Web.Api.Tests
 {
-    public class IocMockModule : IocModule
+    public class MockIocModule : NinjectIocModule
     {
-        public IocMockModule()
+        public MockIocModule()
         {
             AuthContextFunc = x => new Mock<IAuthContext>().Object;
             UmsDbFunc = x => new Mock<IUmsDb>().Object;

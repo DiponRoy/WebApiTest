@@ -49,7 +49,7 @@ namespace Web.Api.Auth
         {
             context.OwinContext.Response.Headers.Add("Access-Control-Allow-Origin", new[] { "*" });
 
-            var repo = new AuthRepository(IocContainer.Get<IAuthContext>());
+            var repo = new AuthRepository(IocAdapter.Container.Get<IAuthContext>());
             Admin user = repo.FindActive(context.UserName, context.Password);
             if (user == null)
             {
