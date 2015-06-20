@@ -10,9 +10,10 @@ namespace Web.Api
         public static void Register(HttpConfiguration config)
         {
             IocKernelProvider.CreateDefaultKernalIfNotExists();
-            NinjectScope ninjectScope = new NinjectIocContainer(IocKernelProvider.Kernel());
-            IocAdapter.SetContainer(ninjectScope as IIocContainer);
-            config.DependencyResolver = ninjectScope as IDependencyResolver;
+            IKernel kernel = IocKernelProvider.Kernel();
+
+            IocAdapter.SetContainer(new NinjectIocContainer(kernel));
+            config.DependencyResolver = new NinjectDependencyResolver(kernel);
         }
     }
 }
