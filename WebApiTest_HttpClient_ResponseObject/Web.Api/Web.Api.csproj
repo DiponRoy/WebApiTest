@@ -143,7 +143,12 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Attributes\ControllerSecurity\AuthorizeProviderAttribute.cs" />
+    <Compile Include="Attributes\ControllerSecurity\HttpHeaderReader.cs" />
     <Compile Include="Controllers\AdminsController.cs" />
+    <Compile Include="Attributes\ControllerSecurity\AuthorizeUserAttribute.cs" />
+    <Compile Include="Controllers\ErrorsController.cs" />
+    <Compile Include="Controllers\HeadersController.cs" />
     <Compile Include="Controllers\StudentsController.cs" />
     <Compile Include="Db\IUmsDb.cs" />
     <Compile Include="Db\Admin.cs" />

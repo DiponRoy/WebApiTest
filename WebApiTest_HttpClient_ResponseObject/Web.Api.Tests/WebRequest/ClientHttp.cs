@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
@@ -11,9 +13,11 @@ namespace Web.Api.Tests.WebRequest
     public class ClientHttp : IDisposable
     {
         public readonly string BaseUrlString;
+        public readonly Dictionary<string, string> Headers; 
         public readonly HttpServer Server;
         public bool IsDisposed { get; private set; }
 
+        /*impt: to call on every instance*/
         public ClientHttp(string baseUrlString)
         {
             if (String.IsNullOrEmpty(baseUrlString))
@@ -21,6 +25,7 @@ namespace Web.Api.Tests.WebRequest
                 throw new NullReferenceException("baseUrlString is null at constructor.");
             }
             BaseUrlString = baseUrlString;
+            Headers = new Dictionary<string, string>();
         }
 
         public ClientHttp(string baseUrlString, HttpServer server) : this(baseUrlString)
@@ -32,26 +37,44 @@ namespace Web.Api.Tests.WebRequest
             Server = server;
         }
 
-        private Tuple<HttpClient, HttpRequestMessage> CreateRequest(string route, HttpMethod method)
+        private void SetHeadersIfAny(HttpClient client)
         {
-            HttpClient client = (Server != null) ? new HttpClient(Server) : new HttpClient();
-            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            if (Headers.Any())
+            {
+                foreach (var header in Headers)
+                {
+                    client.DefaultRequestHeaders.Add(header.Key, header.Value);
+                }
+            }
+        }
 
+        /*impt: to create each request*/
+        private Tuple<HttpClient, HttpRequestMessage> Request(string route, HttpMethod method)
+        {
             if (route == null)
             {
                 throw new Exception("route shouldn't be null for http request");
             }
-            var request = new HttpRequestMessage();
-            request.RequestUri = new Uri(String.Format("{0}/{1}", BaseUrlString, route));
-            request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            request.Method = method;
 
-            return new Tuple<HttpClient, HttpRequestMessage>(client, request);
+            //create client
+            HttpClient client = (Server != null) ? new HttpClient(Server) : new HttpClient();
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            //add headers
+            SetHeadersIfAny(client);
+
+            //request body
+            var requestMessage = new HttpRequestMessage();
+            requestMessage.RequestUri = new Uri(String.Format("{0}/{1}", BaseUrlString, route));
+            requestMessage.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            requestMessage.Method = method;
+
+            return new Tuple<HttpClient, HttpRequestMessage>(client, requestMessage);
         }
 
-        private Tuple<HttpClient, HttpRequestMessage> CreateRequest(string route, HttpMethod method, string dataString)
+        private Tuple<HttpClient, HttpRequestMessage> Request(string route, HttpMethod method, string dataString)
         {
-            Tuple<HttpClient, HttpRequestMessage> request = CreateRequest(route, method);
+            Tuple<HttpClient, HttpRequestMessage> request = Request(route, method);
             HttpRequestMessage requestMessage = request.Item2;
             requestMessage.Content = new StringContent(dataString, Encoding.UTF8, "application/json");
             return request;
@@ -67,11 +90,15 @@ namespace Web.Api.Tests.WebRequest
             {
                 using (HttpResponseMessage response = client.SendAsync(requestMessage).Result)
                 {
-                    result = response.Content.ReadAsStringAsync().Result;
                     if (!response.IsSuccessStatusCode)
                     {
-                        throw new HttpException((int) response.StatusCode, result);
+                        throw new HttpException((int) response.StatusCode, "Error");    //need to get actual error message
                     }
+                    /*
+                     * don't use that to produce error message, 
+                     * some time error like HttpResponseException makes it null, and error again when trying to read
+                     */
+                    result = response.Content.ReadAsStringAsync().Result;   
                 }
             }
             return result;
@@ -89,22 +116,22 @@ namespace Web.Api.Tests.WebRequest
 
         public string Get(string route)
         {
-            return BeginRequest(CreateRequest(route, HttpMethod.Get));
+            return BeginRequest(Request(route, HttpMethod.Get));
         }
 
         public string Delete(string route)
         {
-            return BeginRequest(CreateRequest(route, HttpMethod.Delete));
+            return BeginRequest(Request(route, HttpMethod.Delete));
         }
 
         public string Post(string route, string dataString)
         {
-            return BeginRequest(CreateRequest(route, HttpMethod.Post, dataString));
+            return BeginRequest(Request(route, HttpMethod.Post, dataString));
         }
 
         public string Put(string route, string dataString)
         {
-            return BeginRequest(CreateRequest(route, HttpMethod.Put, dataString));
+            return BeginRequest(Request(route, HttpMethod.Put, dataString));
         }
 
         public TResponseData Get<TResponseData>(string route)
