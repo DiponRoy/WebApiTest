@@ -11,7 +11,7 @@ using Web.Api.Db;
 namespace Web.Api.Tests
 {
     [TestFixture]
-    public class StudentControllerTest
+    public class StudentsControllerTest
     {
         private HttpServer _server;
         private string _url = "http://test/";

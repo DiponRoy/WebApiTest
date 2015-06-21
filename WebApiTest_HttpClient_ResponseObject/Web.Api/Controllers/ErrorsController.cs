@@ -8,32 +8,29 @@ using Web.Api.Db;
 
 namespace Web.Api.Controllers
 {
-    public class AdminsController : ApiController
+    public class ErrorsController : ApiController
     {
-        // GET api/admins
         [HttpGet]
         public IEnumerable<Admin> GetAll()
         {
-            return new Admin[] { new Admin() {Id = 1, Name = "Admin1"}, new Admin(){Id = 2, Name = "Admin2"} };
+            throw new NotImplementedException();
         }
 
-        // GET api/admins/5
+        // GET api/Errors/5
         [HttpGet]
         public Admin GetById(int id)
         {
             return new Admin() { Id = id, Name = "Admin" };
         }
 
-        // POST api/admins
+        // POST api/Errors
         [HttpPost]
         public Admin Add([FromBody]Admin entity)
         {
-            entity.Id = 10;
-            entity.IsActive = true;
-            return entity;
+            throw new Exception("error to add admin.");
         }
 
-        // PUT api/admins/5
+        // PUT api/Errors/5
         [HttpPut]
         public Admin Replace(int id, [FromBody]Admin entity)
         {
@@ -41,11 +38,12 @@ namespace Web.Api.Controllers
             return entity;
         }
 
-        // DELETE api/admins/5
+        // DELETE api/Errors/5
         [HttpDelete]
         public Admin Remove(int id)
         {
-            return new Admin(){Id = id, Name = "Admin", IsActive = false};
+            return new Admin() { Id = id, Name = "Admin", IsActive = false };
         }
+
     }
 }

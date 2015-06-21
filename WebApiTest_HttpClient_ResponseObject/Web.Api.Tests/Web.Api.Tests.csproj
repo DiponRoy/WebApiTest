@@ -116,9 +116,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HeadersControllerTest.cs" />
+    <Compile Include="ErrorsControllerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="AdminControllerTest.cs" />
-    <Compile Include="StudentControllerTest.cs" />
+    <Compile Include="AdminsControllerTest.cs" />
+    <Compile Include="StudentsControllerTest.cs" />
     <Compile Include="WebRequest\ClientHttp.cs" />
   </ItemGroup>
   <ItemGroup>

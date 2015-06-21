@@ -9,7 +9,7 @@ using Web.Api.Tests.WebRequest;
 namespace Web.Api.Tests
 {
     [TestFixture]
-    public class AdminControllerTest
+    public class AdminsControllerTest
     {
         protected HttpServer Server { get; set; }
         protected ClientHttp Client { get; set; }
