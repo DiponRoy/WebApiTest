@@ -60,3 +60,14 @@
 /WebApiTest_HttpClient_ResponseObject/Web.Api/obj
 /WebApiTest_HttpClient_ResponseObject/Web.Api.Tests/bin
 /WebApiTest_HttpClient_ResponseObject/Web.Api.Tests/obj
+/WebApiTest_MvcRouteTester/Db/bin
+/WebApiTest_MvcRouteTester/Db/obj
+/WebApiTest_MvcRouteTester/packages
+/WebApiTest_MvcRouteTester/Web.Api/bin
+/WebApiTest_MvcRouteTester/Web.Api/obj
+/WebApiTest_MvcRouteTester/Web.Api.Test/bin
+/WebApiTest_MvcRouteTester/Web.Api.Test/obj
+/WebApiTest_MvcRouteTester/Web.Api.Test/Web.Api.Test.csproj.user
+/WebApiTest_MvcRouteTester/Web.Api/Web.Api.csproj.user
+/WebApiTest_MvcRouteTester/WebApiTest.sln.DotSettings.user
+/WebApiTest_MvcRouteTester/WebApiTest.v12.suo
