@@ -112,6 +112,7 @@
     <Compile Include="UnitTest\HelloControllerUnitTest.cs" />
     <Compile Include="UnitTest\OAuthProviderUnitTest.cs" />
     <Compile Include="UnitTest\TokenControllerUnitTest.cs" />
+    <Compile Include="UnitTest\WithOutServer\HelloControllerTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

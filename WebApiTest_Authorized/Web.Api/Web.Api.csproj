@@ -199,6 +199,8 @@
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IocConfig.cs" />
+    <Compile Include="Auth\ClaimsIdentityReader.cs" />
+    <Compile Include="Auth\AuthUtility.cs" />
     <Compile Include="Ioc\IIocContainer.cs" />
     <Compile Include="Ioc\IocAdapter.cs" />
     <Compile Include="Ioc\IIocModule.cs" />
@@ -253,6 +255,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AppSettings\" />
+    <Folder Include="Helper\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
