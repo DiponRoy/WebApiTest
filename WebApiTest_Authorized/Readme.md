@@ -22,6 +22,11 @@ Token Auth:
 [http://blog.kloud.com.au/2014/10/26/asp-net-web-api-integration-testing-with-one-line-of-code/](http://blog.kloud.com.au/2014/10/26/asp-net-web-api-integration-testing-with-one-line-of-code/)
 
 
+Claim:
+------
+http://www.jayway.com/2014/09/25/securing-asp-net-web-api-endpoints-using-owin-oauth-2-0-and-claims/
+
+
 How request token to auth provider:
 -------------------------------------
 [http://stackoverflow.com/questions/29246908/c-sharp-unsupported-grant-type-when-calling-web-api](http://stackoverflow.com/questions/29246908/c-sharp-unsupported-grant-type-when-calling-web-api)
