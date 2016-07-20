@@ -12,6 +12,9 @@ Route Attribute:
 
 [http://blogs.msdn.com/b/kiranchalla/archive/2012/05/06/in-memory-client-amp-host-and-integration-testing-of-your-web-api-service.aspx](http://blogs.msdn.com/b/kiranchalla/archive/2012/05/06/in-memory-client-amp-host-and-integration-testing-of-your-web-api-service.aspx)
 
+Study:
+------
+[http://www.strathweb.com/2015/10/global-route-prefixes-with-attribute-routing-in-asp-net-web-api/](http://www.strathweb.com/2015/10/global-route-prefixes-with-attribute-routing-in-asp-net-web-api/)
 
 Too use route attribute[Route("hello/get")] on web api actions
 ---------------------------------------------------------------
