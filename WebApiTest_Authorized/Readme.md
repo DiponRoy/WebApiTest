@@ -85,3 +85,8 @@ Install-Package Microsoft.AspNet.WebApi.OwinSelfHost
 Install-Package Microsoft.Owin.Testing
 
 also mock, nbuilder
+
+Token Auth in Core:
+-------------------
+[https://github.com/foyzulkarim/Cores]
+(https://github.com/foyzulkarim/Cores)
